@@ -1,6 +1,21 @@
+import random
+import Neuron
+
+
 class NeuralLayer:
 	
-	def __init__(self, neurons):
+	def __init__(self, n, weight_lenght, type):
+		neurons = []
+		for i in range(n):
+			weight = []
+			bias = random.uniform(-2, 2)
+			for w in range(weight_lenght):
+				weight.append(random.uniform(-2, 2))
+			if type == "sigmoid":
+				neuron = Neuron.Sigmoid(weight, bias)
+			else:
+				neuron = Neuron.Perceptron(weight, bias)
+			neurons.append(neuron)
 		self.neurons = neurons
 		self.next_layer = None
 		self.previous_layer = None

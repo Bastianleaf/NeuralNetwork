@@ -16,6 +16,8 @@ class NeuralNetwork:
 			
 	def train(self, inputs, desired_output):
 		self.outputs = self.feed(inputs)
+		self.backward_propagate_error(desired_output)
+		self.update_weight(inputs)
 
 	def feed(self, inputs):
 		output = self.first_layer.feed(inputs)
