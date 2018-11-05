@@ -1,7 +1,7 @@
-from NeuralLayer import NeuronLayer
+from NeuralNetwork import NeuralLayer
 from NeuralNetwork import NeuralNetwork
-from Perceptron import Perceptron
-from Sigmoid import Sigmoid
+from Neuron import Perceptron
+from Neuron import Sigmoid
 import random
 
 
@@ -17,7 +17,7 @@ def layer(n, weight_lenght, type):
 		else:
 			neuron = Perceptron(weight, bias)
 		neurons.append(neuron)
-	return NeuronLayer(neurons)
+	return NeuralLayer(neurons)
 
 #Aprender XOR
 layer_a = layer(3, 2, "sigmoid")

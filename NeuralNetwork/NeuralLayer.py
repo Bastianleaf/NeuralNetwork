@@ -1,4 +1,4 @@
-class NeuronLayer:
+class NeuralLayer:
 	
 	def __init__(self, neurons):
 		self.neurons = neurons
