@@ -1,7 +1,5 @@
-from NeuralNetwork import NeuralLayer
-from NeuralNetwork import NeuralNetwork
-from Neuron import Perceptron
-from Neuron import Sigmoid
+import Neuron
+import Network
 import random
 
 
@@ -13,16 +11,16 @@ def layer(n, weight_lenght, type):
 		for w in range(weight_lenght):
 			weight.append(random.uniform(-2, 2))
 		if type == "sigmoid":
-			neuron = Sigmoid(weight, bias)
+			neuron = Neuron.Sigmoid(weight, bias)
 		else:
-			neuron = Perceptron(weight, bias)
+			neuron = Neuron.Perceptron(weight, bias)
 		neurons.append(neuron)
-	return NeuralLayer(neurons)
+	return Network.NeuralLayer(neurons)
 
 #Aprender XOR
 layer_a = layer(3, 2, "sigmoid")
 layer_b = layer(1, 3, "sigmoid")
-network = NeuralNetwork([layer_a, layer_b])
+network = Network.NeuralNetwork([layer_a, layer_b])
 for i in range(0, 10000):
 	# aprender 0 - 0 -> 0
 	output = network.feed([0, 0])
