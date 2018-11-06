@@ -26,44 +26,53 @@ outDict={
 	"CL6": 1.0
 	
 }
-
-with open("drug_consumption.data", "r") as fp:
-	with open("data_normalizada.data", "w") as gp:
+with open("n_score_data", "r") as fp:
+	with open("n_score", "w+") as gp:
 		for line in fp:
-			linea = line.split(",")
-			print(linea)
-			linea[1] = edad(float(linea[1]))
-			linea[2] = genero(float(linea[2]))
-			linea[3] = educacion(float(linea[3]))
-			linea[4] = pais(float(linea[4]))
-			linea[5] = etnia(float(linea[5]))
-			linea[6] = n_score(float(linea[6]))
-			linea[7] = e_score(float(linea[7]))
-			linea[8] = o_score(float(linea[8]))
-			linea[9] = a_score(float(linea[9]))
-			linea[10] = c_score(float(linea[10]))
-			linea[11] = impulsive(float(linea[11]))
-			linea[12] = SS(float(linea[12]))
-			linea[13] = outDict[linea[13]]
-			linea[14] = outDict[linea[14]]
-			linea[15] = outDict[linea[15]]
-			linea[16] = outDict[linea[16]]
-			linea[17] = outDict[linea[17]]
-			linea[18] = outDict[linea[18]]
-			linea[19] = outDict[linea[19]]
-			linea[20] = outDict[linea[20]]
-			linea[21] = outDict[linea[21]]
-			linea[22] = outDict[linea[22]]
-			linea[23] = outDict[linea[23]]
-			linea[24] = outDict[linea[24]]
-			linea[25] = outDict[linea[25]]
-			linea[26] = outDict[linea[26]]
-			linea[27] = outDict[linea[27]]
-			linea[28] = outDict[linea[28]]
-			linea[29] = outDict[linea[29]]
-			linea[30] = outDict[linea[30]]
-			linea[31] = outDict[linea[31][:3]]
-			toPrint = ",".join((map(str, linea)))
-			gp.write(toPrint + '\n')
+			linea = line.split(" ")
+			gp.write(linea[0] + ' & ' + linea[2] + ' & ' + str(round(SS(float(linea[2])), 5)) + ' \\' + '\\ \hline' +'\n')
+
 fp.close()
 gp.close()
+			
+
+# with open("drug_consumption.data", "r") as fp:
+# 	with open("data_normalizada.data", "w") as gp:
+# 		for line in fp:
+# 			linea = line.split(",")
+# 			linea[1] = edad(float(linea[1]))
+# 			linea[2] = genero(float(linea[2]))
+# 			linea[3] = educacion(float(linea[3]))
+# 			linea[4] = pais(float(linea[4]))
+# 			linea[5] = etnia(float(linea[5]))
+# 			linea[6] = n_score(float(linea[6]))
+# 			linea[7] = e_score(float(linea[7]))
+# 			linea[8] = o_score(float(linea[8]))
+# 			linea[9] = a_score(float(linea[9]))
+# 			linea[10] = c_score(float(linea[10]))
+# 			linea[11] = impulsive(float(linea[11]))
+# 			linea[12] = SS(float(linea[12]))
+# 			linea[13] = outDict[linea[13]]
+# 			linea[14] = outDict[linea[14]]
+# 			linea[15] = outDict[linea[15]]
+# 			linea[16] = outDict[linea[16]]
+# 			linea[17] = outDict[linea[17]]
+# 			linea[18] = outDict[linea[18]]
+# 			linea[19] = outDict[linea[19]]
+# 			linea[20] = outDict[linea[20]]
+# 			linea[21] = outDict[linea[21]]
+# 			linea[22] = outDict[linea[22]]
+# 			linea[23] = outDict[linea[23]]
+# 			linea[24] = outDict[linea[24]]
+# 			linea[25] = outDict[linea[25]]
+# 			linea[26] = outDict[linea[26]]
+# 			linea[27] = outDict[linea[27]]
+# 			linea[28] = outDict[linea[28]]
+# 			linea[29] = outDict[linea[29]]
+# 			linea[30] = outDict[linea[30]]
+# 			linea[31] = outDict[linea[31][:3]]
+# 			linea = linea[1:]
+# 			toPrint = ",".join((map(str, linea)))
+# 			gp.write(toPrint + '\n')
+# fp.close()
+# gp.close()
