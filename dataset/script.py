@@ -1,16 +1,7 @@
-lines =[]
-with open('a') as f:
-	for line in f:
-		a = line.split(" ")
-		if len(a) > 7:
-			lines.append([a[6], a[8]])
-		if len(a) > 4:
-			lines.append([a[3], a[5]])
-		lines.append([a[0], a[1]])
-lines.sort()
-f.close()
-with open('b', 'w') as g:
-	for line in lines:
-		g.write(line[1] + ' & ' + line[0] + ' \\' + '\\ \hline' +'\n')
-		
-g.close()
+import random
+with open('data_normalizada.data','r+') as source:
+    data = [ (random.random(), line) for line in source ]
+data.sort()
+with open('data_normalizada_random.data','w+') as target:
+    for _, line in data:
+        target.write( line )

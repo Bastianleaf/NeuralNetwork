@@ -1,9 +1,10 @@
 import matplotlib.pyplot as plt
 
 error_array = []
-output = "../dataset/output_deseado.data"
+output = "../dataset/output_deseado.data" #output deseado
+outputs_array = [0, 1, 10, 50, 100, 500, 1000] #outputs generados
 with open(output, 'r') as g:
-	for n in [0, 1, 10, 50, 100, 500, 1000, 5000, 10000]:
+	for n in outputs_array:
 		error_list = []
 		with open("../dataset/output_adquirido_" + str(n) + ".data", 'r+') as f:
 			for (line_d, line_o) in zip(f.readlines(), g.readlines()):
@@ -15,14 +16,15 @@ with open(output, 'r') as g:
 				error_list.append(error_sum)
 			g.seek(0)
 			prom_outputs = (list(map(lambda x: x / 19, error_list)))
-			error_prom = sum(prom_outputs) /1885
+			error_prom = sum(prom_outputs) /377
 			#print(prom_outputs)
 			#print(error_prom)
 			error_array.append(error_prom)
 		f.close()
 	g.close()
 error_array = (list(map(lambda x: 1 - x, error_array)))
-print(error_array)
-plt.plot([0, 1, 10], error_array[:3])
-plt.axis([0, 10, 0.5, 1.0])
+plt.plot([0, 1, 10, 50, 100, 500, 1000], error_array)
+plt.axis([0, 20, 0.5, 1])
+plt.ylabel('Precisión')
+plt.xlabel('Cantidad de Entrenamiento')
 plt.show()
