@@ -1,5 +1,5 @@
 import random
-import Neuron
+import Neurons
 
 
 class NeuralLayer:
@@ -12,9 +12,9 @@ class NeuralLayer:
 			for w in range(weight_lenght):
 				weight.append(random.uniform(-2, 2))
 			if type == "sigmoid":
-				neuron = Neuron.Sigmoid(weight, bias)
+				neuron = Neurons.Sigmoid(weight, bias)
 			else:
-				neuron = Neuron.Perceptron(weight, bias)
+				neuron = Neurons.Perceptron(weight, bias)
 			neurons.append(neuron)
 		self.neurons = neurons
 		self.next_layer = None

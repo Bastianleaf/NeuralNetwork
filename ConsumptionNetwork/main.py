@@ -1,7 +1,7 @@
 import Network
 from time import time
 
-training_list = [1, 10, 50, 100, 500, 1000] # crear arreglo con la cantidad de entrenamientos
+training_list = [5000, 10000] # crear arreglo con la cantidad de entrenamientos
 layer_a = Network.NeuralLayer(5, 12, "sigmoid")  # un hidden layer: cantidad de neuronas, cantidad de input, tipo de neurona
 layer_b = Network.NeuralLayer(19, 5, "sigmoid")
 network = Network.NeuralNetwork([layer_a, layer_b]) # crear red
