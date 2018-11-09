@@ -14,10 +14,10 @@ class NeuralNetwork:
 				layers[i].set_next_layer(layers[i + 1])
 			layers[len(layers) - 1].set_previous_layer(layers[len(layers) - 2])
 			
-	def train(self, inputs, desired_output):
+	def train(self, inputs, desired_output, lr):
 		self.outputs = self.feed(inputs)
 		self.backward_propagate_error(desired_output)
-		self.update_weight(inputs)
+		self.update_weight(inputs, lr)
 
 	def feed(self, inputs):
 		output = self.first_layer.feed(inputs)
@@ -31,5 +31,5 @@ class NeuralNetwork:
 		self.last_layer.backward_propagate_error(expected_outputs)
 		
 
-	def update_weight(self, inputs):
-		self.first_layer.update_weight(inputs)
+	def update_weight(self, inputs, lr):
+		self.first_layer.update_weight(inputs, lr)

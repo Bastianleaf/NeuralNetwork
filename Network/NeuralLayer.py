@@ -57,8 +57,8 @@ class NeuralLayer:
 		if self.previous_layer is not None:  # si no es primer layer, continua
 			self.previous_layer.backward_propagate_error([])
 			
-	def update_weight(self, inputs):
-		learning_rate = 0.5
+	def update_weight(self, inputs, lr):
+		learning_rate = lr
 		if self.previous_layer is None:
 			inputs = inputs
 		else:
@@ -67,7 +67,7 @@ class NeuralLayer:
 			neuron.adjust_weight_with_input(inputs, learning_rate)
 			neuron.adjust_bias_using_learning_rate(learning_rate)
 		if self.next_layer is not None:
-			self.next_layer.update_weight(inputs)
+			self.next_layer.update_weight(inputs, lr)
 
 	def get_errors(self):
 		deltas = []
